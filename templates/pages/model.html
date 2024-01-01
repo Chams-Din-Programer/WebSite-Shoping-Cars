@@ -1,0 +1,97 @@
+{% load static %}
+
+ {% include 'links/header.html' %}
+         
+ <main>
+  <article>
+
+    {% include 'links/search.html' %}
+  <!-- 
+        - #FEATURED CAR
+      -->
+
+      <section class="section featured-car" id="model">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">{{ make }}</h2>
+          </div>
+
+          <ul class="featured-car-list">
+          {% for model in models %}
+            <li>
+              <div class="featured-car-card">
+
+                <figure class="card-banner">
+                  <img src="{{ model.image.url }}" alt="{{ model.nom }}" loading="lazy" width="440" height="300"
+                    class="w-100">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-title-wrapper">
+                    <h3 class="h3 card-title">
+                      <a href="#">{{ model.nom }}</a>
+                    </h3>
+
+                    <data class="year" value="{{ model.annee }}">{{ model.annee }}</data>
+                  </div>
+
+                  <ul class="card-list">
+
+                    <li class="card-list-item">
+                      <ion-icon name="people-outline"></ion-icon>
+
+                      <span class="card-item-text">{{ model.nbr_plc }}</span>
+                    </li>
+
+                    <li class="card-list-item">
+                      <ion-icon name="flash-outline"></ion-icon>
+
+                      <span class="card-item-text">{{ model.energie }}</span>
+                    </li>
+
+                    <li class="card-list-item">
+                      <ion-icon name="speedometer-outline"></ion-icon>
+
+                      <span class="card-item-text">{{ model.speed }}km / 1-litre</span>
+                    </li>
+
+                    <li class="card-list-item">
+                      <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                      <span class="card-item-text">{{ model.vitesse }}</span>
+                    </li>
+
+                  </ul>
+
+                  <div class="card-price-wrapper">
+
+                    <p class="card-price">
+                      <strong>{{ model.price }}</strong> Dhs
+                    </p>
+
+                    <a href="{% url 'car' car=model.nom %}" class="btn card-badge">View Car</a>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #GET START
+      -->
+      {% include 'links/logos.html' %}
+    
+    </article>
+  </main>
+
+
+ {% include 'links/footer.html' %}

@@ -1,0 +1,100 @@
+ {% load static %}
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Design - Rent your favourite car</title>
+<!-- ===== Iconscout CSS ===== -->
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="{% static 'image/logo_WS.png' %}" type="image/png">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+ <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container" data-aos="fade-down" data-aos-offset="150" data-aos-easing="ease-in-sine">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="{% url 'Index' %}" class="logo">
+        <img src="{% static 'image/Modern Minimalist Car Illustration Logo(1).png' %}" alt="logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li>
+            <a href="{% url 'Index' %}" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li>
+            <a href="{% url 'models' %}" class="navbar-link" data-nav-link>Mark</a>
+          </li>
+
+          <li>
+            <a href="{% url 'model' make="AUDI" %}" class="navbar-link" data-nav-link>Model</a>
+          </li>
+
+          <li>
+            <a href="{% url 'contact' %}" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="header-contact">
+          <a href="tel:0564585251" class="contact-link">+212 564585251</a>
+
+          <span class="contact-time">Mon - Sat: 9:00 am - 6:00 pm</span>
+        </div>
+        <a href="{% url 'admin:index' %}" class="btn" aria-labelledby="aria-label-txt">
+          <ion-icon name="car-outline"></ion-icon>
+          <span id="aria-label-txt">Admin</span>
+        </a>
+        {% if request.session.user %}
+        <p>Welcome, <u>{{ request.session.user.name }}</u>!</p>
+        <a href="{% url 'logout' %}" class="btn user-btn" aria-label="Logout">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}" class="btn user-btn" aria-label="Profile">
+          <ion-icon name="person-outline"></ion-icon>
+        </a>
+        {% endif %}
+        <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle Menu">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+

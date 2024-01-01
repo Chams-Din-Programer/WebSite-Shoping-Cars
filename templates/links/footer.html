@@ -1,0 +1,178 @@
+{% load static %}
+
+<!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand" >
+          <a href="{% url 'Index' %}" class="logo" data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine">
+            <img src="{% static 'image/Modern Minimalist Car Illustration Logo(1).png' %}" alt="logo">
+          </a>
+
+          <p class="footer-text">
+            Find cheap cars for sale in Rabat. With a diversified fleet of 5,000+ vehicles, Auto Design offers what it has to offer
+              consumers and
+              Attractive and fun choice.
+          </p>
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Company</p>
+          </li>
+
+          <li>
+            <a href="{% url 'Index' %}" class="footer-link">Home</a>
+          </li>
+
+          <li>
+            <a href="{% url 'models' %}" class="footer-link">Marks</a>
+          </li>
+
+          <li>
+            <a href="{% url 'model' make="AUDI" %}" class="footer-link">Models</a>
+          </li>
+
+          <li>
+            <a href="{% url 'contact' %}" class="footer-link">contact</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Support</p>
+          </li>
+
+          <li>
+            <a class="footer-link">Help center</a>
+          </li>
+
+          <li>
+            <a class="footer-link">Ask a question</a>
+          </li>
+
+          <li>
+            <a class="footer-link">Privacy policy</a>
+          </li>
+
+          <li>
+            <a class="footer-link">Terms & conditions</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Cities of Morocco</p>
+          </li>
+
+          <li>
+            <a class="footer-link">Rabat</a>
+          </li>
+
+          <li>
+            <a class="footer-link">Fes</a>
+          </li>
+
+          <li>
+            <a class="footer-link">Tanga</a>
+          </li>
+
+          <li>
+            <a class="footer-link">Agadir</a>
+          </li>
+
+          <li>
+            <a class="footer-link">Casablanca</a>
+          </li>
+
+          <li>
+            <a class="footer-link">Sale</a>
+          </li>
+
+          <li>
+            <a class="footer-link">Jadida</a>
+          </li>
+
+          <li>
+            <a class="footer-link">Dakhla</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <ul class="social-list">
+
+          <li>
+            <a class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a class="social-link">
+              <ion-icon name="mail-outline"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+        <p class="copyright">
+          &copy; 2023 <a href="{% url 'Index' %}">Auto Design</a>. All Rights Reserved
+        </p>
+
+      </div>
+      <button onclick="topFunction()" id="scroll-top-btn"><ion-icon name="arrow-up-outline"></ion-icon></button>
+    </div>
+  </footer>
+  
+<!-- 
+    - custom js link
+  -->
+  <script src="{% static 'js/script.js' %}"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+{% load static %}
+
+
+
+ {% include 'links/header.html' %}
+
+  <main>
+    <article>
+
+      <!-- 
+        - #PRODUCT
+      -->
+
+      <section class="section product" aria-label="product">
+        {% if error %}
+          <h3>{{ error }}</h3>
+        {% endif %}
+        <div class="container">
+
+          <div class="product-slides">
+
+            <div class="slider-banner" data-slider data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+              <figure class="product-banner">
+                <img src="{{ model.image.url }}" width="600" height="300" loading="lazy" alt="{{ model.nom }}"
+                  class="img-cover">
+              </figure>
+              {% if model.image1 %}
+              <figure class="product-banner">
+                <img src="{{ model.image1.url }}" width="600" height="300" loading="lazy" alt="{{ model.nom }}"
+                  class="img-cover">
+              </figure>
+              {% endif %}
+              {% if model.image2 %}
+              <figure class="product-banner">
+                <img src="{{ model.image2.url }}" width="600" height="300" loading="lazy" alt="{{ model.nom }}"
+                  class="img-cover">
+              </figure>
+              {% endif %}
+              {% if model.image3 %}
+              <figure class="product-banner">
+                <img src="{{ model.image3.url }}" width="600" height="300" loading="lazy" alt="{{ model.nom }}"
+                  class="img-cover">
+              </figure>
+              {% endif %}
+            </div>
+
+            <button class="slide-btn prev" aria-label="Previous image" data-prev>
+              <ion-icon name="chevron-back" aria-hidden="true"></ion-icon>
+            </button>
+
+            <button class="slide-btn next" aria-label="Next image" data-next>
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+            </button>
+
+          </div>
+
+          <div class="product-content" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+
+            <p class="product-subtitle">{{ model.id_marque.nom }}</p>
+
+            <h1 class="h1 product-title">{{ model.nom }}</h1>
+
+            <p class="product-text">{{ model.content }}</p>
+
+            <div class="wrapper">
+                <h2>Energie :</h2>
+                <span class="price" data-total-price>{{ model.energie }}</span>
+                <h4>|</h4>
+                <h2>Puissance :</h2>
+                <span class="price" data-total-price>{{ model.puissance }} CV</span>
+            </div>
+            <div class="wrapper">
+                <h2>Vitesse :</h2>
+                <span class="price" data-total-price>{{ model.vitesse }}</span>
+                <h4>|</h4>
+                <h2>Number place :</h2>
+                <span class="price" data-total-price>{{ model.nbr_plc }}</span>
+            </div>
+            <div class="wrapper">
+                <h2>Speed :</h2>
+                <span class="price" data-total-price>{{ model.speed }}km / 1-litre</span>
+                <h4>|</h4>
+                <h2>Annee :</h2>
+                <span class="price" data-total-price>{{ model.annee }}</span>
+            </div>
+            <div class="wrapper">
+                <h2>Price :</h2>
+                <span class="price" data-total-price>{{ model.price }} Dhs</span>
+            </div>
+
+            <div class="btn-group">
+              <button class="cart-btn">
+
+                <span id="open-btn" class="span">Book Now</span>
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+        <div id="lightbox">
+          <div class="box">
+            <span id="close-btn">&times;</span>
+            <div class="title">
+              <h1>Car Reservation</h1>
+            </div>
+            <form method="POST" id="contact-former">
+              {% csrf_token %}
+            <div class="contact-form">
+              <div class="input-fields">
+                <input type="text" name="CIN" class="input" placeholder="CIN">
+                <input type="text" name="FirstName" class="input" placeholder="FirstName">
+                <input type="text" name="LastName" class="input" placeholder="LastName">
+                <input type="email" name="Email" class="input" placeholder="Email">
+                <select name="Sex" class="input">
+                  <option disabled selected>Sex</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+                <input type="date" name="ReservationDate" class="input" placeholder="Reservation Date">
+                <input type="number" name="Phone" class="input" placeholder="Phone">
+              </div>
+            </div>
+            <input type="submit" value="send" class="btn">
+          </form>
+          {% if error %}
+          <h3>{{ error }}</h3>
+          {% endif %}
+          </div>
+        </div>
+      </section>
+      
+      {% include 'links/logos.html' %}
+
+    </article>
+</main>
+
+
+
+{% include 'links/footer.html' %}

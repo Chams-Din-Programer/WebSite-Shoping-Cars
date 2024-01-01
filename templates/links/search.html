@@ -1,0 +1,43 @@
+<!-- 
+        - #HERO
+      -->
+
+<section class="section hero" id="home">
+    <div class="container">
+
+      <div class="hero-content" data-aos="fade-right">
+        <h2 class="h1 hero-title">The Easiest Way To Get A Car</h2>
+
+        <p class="hero-text">
+          Live in Rabat, Casablanca and Tanga!
+        </p>
+      </div>
+
+      <div class="hero-banner"  data-aos="fade-left"></div>
+
+      <form action="{% url 'search'  %}" method="GET" class="hero-form"  data-aos="fade-right">
+
+        <div class="input-wrapper">
+          <label for="input-1" class="input-label">search of mark</label>
+
+          <input type="text" name="car" id="input-1" class="input-field" placeholder="What car are you looking?" required>
+        </div>
+
+        <div class="input-wrapper">
+          <label for="input-2" class="input-label">Max. payment</label>
+
+          <input type="text" name="pay" id="input-2" class="input-field" placeholder="Add an amount in Dhs" required>
+        </div>
+
+        <div class="input-wrapper">
+          <label for="input-3" class="input-label">Make Year</label>
+
+          <input type="text" name="year" id="input-3" class="input-field" placeholder="Add maximal make year" required>
+        </div>
+
+        <button type="submit" class="btn">Search</button>
+
+      </form>
+
+    </div>
+  </section>

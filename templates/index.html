@@ -1,0 +1,174 @@
+{% load static %}
+
+
+
+ {% include 'links/header.html' %}
+
+  <main>
+    <article>
+
+      {% include 'links/search.html' %}
+
+
+  <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" id="marque">
+        <div class="container">
+
+          <h2 class="h2 section-title" data-aos="fade-right"
+          data-aos-easing="ease-in-sine">Marks</h2>
+          
+          <ul class="blog-list has-scrollbar" data-aos="fade-right"
+          data-aos-easing="ease-in-sine">
+            {% for marque in marques %}
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+                  <a href="{% url 'model' make=marque.nom %}">
+                    <img src="{{ marque.logo.url}}" alt="Opening of new offices of the company" loading="lazy" class="w-100">
+                  </a>
+                  <a href="{% url 'model' make=marque.nom %}" class="btn card-badge">View More</a>
+
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">
+                    <p>{{ marque.nom }}</p>
+                  </h3>
+
+                  <div class="card-meta">
+
+                    <div class="publish-date">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                      <time datetime="2022-01-14">January 14, 2022</time>
+                    </div>
+
+                    <div class="comments">
+                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+
+                      <data value="114">114</data>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+      <!-- 
+        - #FEATURED CAR
+      -->
+
+      <section class="section featured-car" id="model">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">Model Cars</h2>
+
+            <a href="{% url 'models' %}" class="featured-car-link" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+              <span>View more</span>
+
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+          </div>
+
+          <ul class="featured-car-list" >
+          {% for model in models|dictsort:'price' %}
+            <li data-aos="fade-up"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine">
+              <div class="featured-car-card">
+
+                <figure class="card-banner">
+                  <img src="{{ model.image.url }}" alt="{{ model.nom }}" loading="lazy" width="440" height="300"
+                    class="w-100">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-title-wrapper">
+                    <h3 class="h3 card-title">
+                      <a href="#">{{ model.id_marque }} {{ model.nom }}</a>
+                    </h3>
+
+                    <data class="year" value="{{ model.annee }}">{{ model.annee }}</data>
+                  </div>
+
+                  <ul class="card-list">
+
+                    <li class="card-list-item">
+                      <ion-icon name="people-outline"></ion-icon>
+
+                      <span class="card-item-text">{{ model.nbr_plc }}</span>
+                    </li>
+
+                    <li class="card-list-item">
+                      <ion-icon name="flash-outline"></ion-icon>
+
+                      <span class="card-item-text">{{ model.energie }}</span>
+                    </li>
+
+                    <li class="card-list-item">
+                      <ion-icon name="speedometer-outline"></ion-icon>
+
+                      <span class="card-item-text">{{ model.speed }}km / 1-litre</span>
+                    </li>
+
+                    <li class="card-list-item">
+                      <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                      <span class="card-item-text">{{ model.vitesse }}</span>
+                    </li>
+
+                  </ul>
+
+                  <div class="card-price-wrapper">
+
+                    <p class="card-price">
+                      <strong>{{ model.price }}</strong> Dhs
+                    </p>
+
+                    <a href="{% url 'car' car=model.nom %}" class="btn card-badge">View Car</a>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #GET START
+      -->
+
+     
+    
+    </article>
+  </main>
+
+
+
+  {% include 'links/footer.html' %}
+
+
+  
+
